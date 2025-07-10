@@ -1,5 +1,6 @@
 // projects/demo/src/app/app.ts
-import { Component, inject } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -10,12 +11,28 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { ThemeToggleComponent, ThemeService } from 'ngx-mat-grayscale-theme';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    FormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
@@ -26,6 +43,21 @@ import { ThemeToggleComponent, ThemeService } from 'ngx-mat-grayscale-theme';
     MatIconModule,
     MatTableModule,
     MatDividerModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatSlideToggleModule,
+    MatSliderModule,
+    MatTabsModule,
+    MatStepperModule,
+    MatExpansionModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatBadgeModule,
+    MatChipsModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatPaginatorModule,
     ThemeToggleComponent
   ],
   templateUrl: './app.html',
@@ -33,13 +65,75 @@ import { ThemeToggleComponent, ThemeService } from 'ngx-mat-grayscale-theme';
 })
 export class AppComponent {
   themeService = inject(ThemeService);
+  dialog = inject(MatDialog);
+  snackBar = inject(MatSnackBar);
   
-  displayedColumns: string[] = ['name', 'email', 'role', 'status'];
+  displayedColumns: string[] = ['select', 'name', 'email', 'role', 'status', 'actions'];
   dataSource = [
-    { name: 'Ján Novák', email: 'jan@example.com', role: 'Admin', status: 'active' },
-    { name: 'Mária Svobodová', email: 'maria@example.com', role: 'Editor', status: 'active' },
-    { name: 'Peter Horváth', email: 'peter@example.com', role: 'User', status: 'inactive' },
-    { name: 'Anna Dvořáková', email: 'anna@example.com', role: 'Moderator', status: 'active' },
-    { name: 'Tomáš Kovář', email: 'tomas@example.com', role: 'User', status: 'active' }
+    { name: 'John Doe', email: 'john@example.com', role: 'Admin', status: 'active' },
+    { name: 'Jane Smith', email: 'jane@example.com', role: 'Editor', status: 'active' },
+    { name: 'Bob Johnson', email: 'bob@example.com', role: 'User', status: 'inactive' },
+    { name: 'Alice Brown', email: 'alice@example.com', role: 'Moderator', status: 'active' },
+    { name: 'Charlie Wilson', email: 'charlie@example.com', role: 'User', status: 'active' },
+    { name: 'Diana Davis', email: 'diana@example.com', role: 'Editor', status: 'inactive' },
+    { name: 'Frank Miller', email: 'frank@example.com', role: 'User', status: 'active' },
+    { name: 'Grace Taylor', email: 'grace@example.com', role: 'Admin', status: 'active' },
+    { name: 'Henry Anderson', email: 'henry@example.com', role: 'User', status: 'active' },
+    { name: 'Ivy Thomas', email: 'ivy@example.com', role: 'Moderator', status: 'inactive' }
   ];
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DemoDialogComponent, {
+      width: '400px',
+      data: { message: 'This is a demo dialog' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.snackBar.open('Dialog closed with result: ' + result, 'Close', {
+          duration: 3000
+        });
+      }
+    });
+  }
+
+  openSnackBar() {
+    this.snackBar.open('This is a demo snackbar message', 'Close', {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    });
+  }
+}
+
+@Component({
+  selector: 'demo-dialog',
+  standalone: true,
+  imports: [FormsModule, MatDialogModule, MatButtonModule, MatFormFieldModule, MatInputModule],
+  template: `
+    <h2 mat-dialog-title>Demo Dialog</h2>
+    <mat-dialog-content>
+      <p>{{ data.message }}</p>
+      <mat-form-field>
+        <mat-label>Enter something</mat-label>
+        <input matInput [(ngModel)]="inputValue">
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      <button mat-button [mat-dialog-close]="inputValue" cdkFocusInitial>OK</button>
+    </mat-dialog-actions>
+  `
+})
+export class DemoDialogComponent {
+  inputValue = '';
+  
+  constructor(
+    public dialogRef: MatDialogRef<DemoDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: {message: string}
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
