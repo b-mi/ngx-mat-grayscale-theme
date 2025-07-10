@@ -19,6 +19,74 @@ html {
       density: 0
     )
   );
+
+  // Styling mat-form-field for light theme
+  @include mat.form-field-color(
+    (
+      container-color: var(--mat-sys-surface-container-low),
+      label-text-color: var(--mat-sys-on-surface-variant),
+      supporting-text-color: var(--mat-sys-on-surface-variant),
+      outline-color: var(--mat-sys-outline),
+      hover-outline-color: var(--mat-sys-on-surface),
+      focus-outline-color: var(--mat-sys-primary),
+      subscript-focus-color: var(--mat-sys-primary),
+      text-input-color: var(--mat-sys-on-surface),
+      caret-color: var(--mat-sys-on-surface),
+    )
+  );
+  @include mat.form-field-density(0);
+
+  // Autofill štýly pre svetlú tému
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-input {
+      background-color: transparent !important;
+      color: var(--mat-sys-on-surface) !important;
+      caret-color: var(--mat-sys-on-surface) !important;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0px 1000px var(--mat-sys-surface-container-low) inset !important;
+      -webkit-text-fill-color: var(--mat-sys-on-surface) !important;
+      caret-color: var(--mat-sys-on-surface) !important;
+      transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important;
+      background-image: none !important;
+      filter: none !important;
+      opacity: 1 !important;
+      background-blend-mode: normal !important;
+      box-sizing: border-box !important;
+    }
+  }
+
+  // Odstránenie tieňov pre wrapper
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      box-shadow: none !important;
+    }
+  }
+
+  // **** ÚPRAVY PRE ODZNAKY (BADGES) - SVETLÁ TÉMA ****
+  @include mat.badge-color(
+    (
+      // Primary odznak: Použije primárnu kontajnerovú farbu a text na nej
+      primary: (
+        container-color: var(--mat-sys-primary-container),
+        text-color: var(--mat-sys-on-primary-container),
+      ),
+      // Accent odznak: Pre lepšiu viditeľnosť použijeme samotnú secondary farbu (tmavšiu ako secondary-container)
+      accent: (
+        container-color: var(--mat-sys-secondary), // Namiesto secondary-container
+        text-color: var(--mat-sys-on-secondary), // Text na secondary farbe
+      ),
+      // Warning odznak: Pre lepšiu viditeľnosť použijeme samotnú error farbu (tmavšiu ako error-container)
+      warn: (
+        container-color: var(--mat-sys-error), // Namiesto error-container
+        text-color: var(--mat-sys-on-error), // Text na error farbe
+      ),
+    )
+  );
 }
 
 // Základné štýly pre body - svetlá téma
@@ -46,12 +114,25 @@ body {
     )
   );
 
-  // Sivšie texty namiesto úplne bielych v tmavej téme
+  @include mat.form-field-color(
+    (
+      container-color: var(--mat-sys-surface-container-low),
+      label-text-color: var(--mat-sys-on-surface-variant),
+      supporting-text-color: var(--mat-sys-on-surface-variant),
+      outline-color: var(--mat-sys-outline),
+      hover-outline-color: var(--mat-sys-on-surface),
+      focus-outline-color: var(--mat-sys-primary),
+      subscript-focus-color: var(--mat-sys-primary),
+      text-input-color: var(--mat-sys-on-surface),
+      caret-color: var(--mat-sys-on-surface),
+    )
+  );
+  @include mat.form-field-density(0);
+
   body {
     color: var(--mat-sys-on-surface-variant) !important;
   }
 
-  // Všetky základné textové elementy
   p,
   li,
   span,
@@ -65,9 +146,59 @@ body {
       supporting-text-color: var(--mat-sys-on-surface)
     )
   );
+
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-input {
+      background-color: transparent !important;
+      color: var(--mat-sys-on-surface) !important;
+      caret-color: var(--mat-sys-on-surface) !important;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0px 1000px var(--mat-sys-surface-container-low) inset !important;
+      -webkit-text-fill-color: var(--mat-sys-on-surface) !important;
+      caret-color: var(--mat-sys-on-surface) !important;
+      transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important;
+      background-image: none !important;
+      filter: none !important;
+      opacity: 1 !important;
+      background-blend-mode: normal !important;
+      box-sizing: border-box !important;
+    }
+  }
+
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      box-shadow: none !important;
+    }
+  }
+
+  // **** ÚPRAVY PRE ODZNAKY (BADGES) - TMAVÁ TÉMA ****
+  @include mat.badge-color(
+    (
+      // Primary odznak
+      primary: (
+        container-color: var(--mat-sys-primary-container),
+        text-color: var(--mat-sys-on-primary-container),
+      ),
+      // Accent odznak (použijeme secondary-container)
+      accent: (
+        container-color: var(--mat-sys-secondary-container),
+        text-color: var(--mat-sys-on-secondary-container),
+      ),
+      // Warning odznak (použijeme error-container)
+      warn: (
+        container-color: var(--mat-sys-error-container),
+        text-color: var(--mat-sys-on-error-container),
+      ),
+    )
+  );
 }
 
-// High contrast verzie
+// High contrast verzie (bezo zmien v badge farbách, ak to nie je explicitne požadované)
 [data-theme="light-high-contrast"] {
   @include mat.theme(
     (
@@ -81,6 +212,28 @@ body {
   );
 
   @include theme-colors.high-contrast-overrides(light);
+
+  @include mat.form-field-color(
+    (
+      container-color: var(--mat-sys-surface-container-lowest),
+      label-text-color: var(--mat-sys-on-surface-variant),
+      supporting-text-color: var(--mat-sys-on-surface-variant),
+      outline-color: var(--mat-sys-outline),
+      hover-outline-color: var(--mat-sys-on-surface),
+      focus-outline-color: var(--mat-sys-primary),
+      subscript-focus-color: var(--mat-sys-primary),
+      text-input-color: var(--mat-sys-on-surface),
+      caret-color: var(--mat-sys-on-surface),
+    )
+  );
+  @include mat.form-field-density(0);
+
+  @include mat.tooltip-overrides(
+    (
+      container-color: var(--mat-sys-surface-container-high),
+      supporting-text-color: var(--mat-sys-on-surface)
+    )
+  );
 }
 
 [data-theme="dark-high-contrast"] {
@@ -98,6 +251,21 @@ body {
 
   @include theme-colors.high-contrast-overrides(dark);
 
+  @include mat.form-field-color(
+    (
+      container-color: var(--mat-sys-surface-container-lowest),
+      label-text-color: var(--mat-sys-on-surface-variant),
+      supporting-text-color: var(--mat-sys-on-surface-variant),
+      outline-color: var(--mat-sys-outline),
+      hover-outline-color: var(--mat-sys-on-surface),
+      focus-outline-color: var(--mat-sys-primary),
+      subscript-focus-color: var(--mat-sys-primary),
+      text-input-color: var(--mat-sys-on-surface),
+      caret-color: var(--mat-sys-on-surface),
+    )
+  );
+  @include mat.form-field-density(0);
+
   @include mat.tooltip-overrides(
     (
       container-color: var(--mat-sys-surface-container-high),
@@ -106,10 +274,8 @@ body {
   );
 }
 
-// Štýly pre toolbar podľa dokumentácie Angular Material
-// Svetlá téma
+// Štýly pre toolbar podľa dokumentácie Angular Material (bezo zmien)
 :root {
-  // Aplikuje pre celú aplikáciu
   @include mat.toolbar-overrides(
     (
       container-background-color: var(--mat-sys-surface-container),
@@ -118,7 +284,6 @@ body {
   );
 }
 
-// Tmavá téma
 [data-theme="dark"] {
   @include mat.toolbar-overrides(
     (
@@ -128,7 +293,6 @@ body {
   );
 }
 
-// High contrast light téma
 [data-theme="light-high-contrast"] {
   @include mat.toolbar-overrides(
     (
@@ -138,7 +302,6 @@ body {
   );
 }
 
-// High contrast dark téma
 [data-theme="dark-high-contrast"] {
   @include mat.toolbar-overrides(
     (
@@ -146,4 +309,37 @@ body {
       container-text-color: var(--mat-sys-on-surface)
     )
   );
+}
+
+// GRAYSCALE UI ÚPRAVY - odstránenie tieňov (bezo zmien)
+.mat-mdc-card {
+  box-shadow: none !important;
+  border: 1px solid var(--mat-sys-outline-variant);
+}
+
+.mat-mdc-button {
+  box-shadow: none !important;
+}
+
+.mat-mdc-raised-button {
+  box-shadow: none !important;
+}
+
+.mat-mdc-menu-panel {
+  box-shadow: none !important;
+  border: 1px solid var(--mat-sys-outline-variant);
+}
+
+.mat-mdc-dialog-container {
+  box-shadow: none !important;
+  border: 1px solid var(--mat-sys-outline-variant);
+}
+
+.mat-mdc-tooltip {
+  border: 1px solid var(--mat-sys-outline-variant) !important;
+}
+
+.mat-mdc-snack-bar-container {
+  box-shadow: none !important;
+  border: 1px solid var(--mat-sys-outline-variant);
 }
