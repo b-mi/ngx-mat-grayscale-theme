@@ -1,5 +1,6 @@
 // projects/demo/src/app/app.ts
 import { Component, inject, Inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,12 +27,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { DragDropModule, CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ThemeToggleComponent, ThemeService } from 'ngx-mat-grayscale-theme';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    CommonModule,
     FormsModule,
     MatToolbarModule,
     MatButtonModule,
@@ -58,6 +61,7 @@ import { ThemeToggleComponent, ThemeService } from 'ngx-mat-grayscale-theme';
     MatDialogModule,
     MatSnackBarModule,
     MatPaginatorModule,
+    DragDropModule,
     ThemeToggleComponent
   ],
   templateUrl: './app.html',
@@ -81,6 +85,38 @@ export class AppComponent {
     { name: 'Henry Anderson', email: 'henry@example.com', role: 'User', status: 'active' },
     { name: 'Ivy Thomas', email: 'ivy@example.com', role: 'Moderator', status: 'inactive' }
   ];
+
+  // Drag & Drop data
+  todoList = [
+    'Design system documentation',
+    'Component library testing',
+    'Theme customization',
+    'Accessibility review'
+  ];
+
+  inProgressList = [
+    'Angular 20 migration',
+    'Dark theme implementation'
+  ];
+
+  doneList = [
+    'Project setup',
+    'Initial component creation',
+    'Basic styling'
+  ];
+
+  onDrop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
+  }
 
   openDialog() {
     const dialogRef = this.dialog.open(DemoDialogComponent, {

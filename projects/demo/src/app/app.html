@@ -417,6 +417,82 @@
         </mat-card-content>
       </mat-card>
 
+      <!-- Drag & Drop -->
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Drag & Drop (CDK)</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="demo-section">
+            <h3>Kanban Board</h3>
+            <div class="kanban-board">
+              <div class="kanban-column">
+                <h4>To Do</h4>
+                <div class="kanban-list" 
+                     cdkDropList
+                     #todoListRef="cdkDropList"
+                     [cdkDropListData]="todoList"
+                     [cdkDropListConnectedTo]="[inProgressListRef, doneListRef]"
+                     (cdkDropListDropped)="onDrop($event)">
+                  <div class="kanban-item" 
+                       *ngFor="let item of todoList" 
+                       cdkDrag>
+                    <mat-icon cdkDragHandle>drag_handle</mat-icon>
+                    {{ item }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="kanban-column">
+                <h4>In Progress</h4>
+                <div class="kanban-list" 
+                     cdkDropList
+                     #inProgressListRef="cdkDropList"
+                     [cdkDropListData]="inProgressList"
+                     [cdkDropListConnectedTo]="[todoListRef, doneListRef]"
+                     (cdkDropListDropped)="onDrop($event)">
+                  <div class="kanban-item" 
+                       *ngFor="let item of inProgressList" 
+                       cdkDrag>
+                    <mat-icon cdkDragHandle>drag_handle</mat-icon>
+                    {{ item }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="kanban-column">
+                <h4>Done</h4>
+                <div class="kanban-list" 
+                     cdkDropList
+                     #doneListRef="cdkDropList"
+                     [cdkDropListData]="doneList"
+                     [cdkDropListConnectedTo]="[todoListRef, inProgressListRef]"
+                     (cdkDropListDropped)="onDrop($event)">
+                  <div class="kanban-item" 
+                       *ngFor="let item of doneList" 
+                       cdkDrag>
+                    <mat-icon cdkDragHandle>drag_handle</mat-icon>
+                    {{ item }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <h3>Simple Sortable List</h3>
+            <div class="sortable-list" 
+                 cdkDropList
+                 (cdkDropListDropped)="onDrop($event)">
+              <div class="sortable-item" 
+                   *ngFor="let item of todoList" 
+                   cdkDrag>
+                <mat-icon cdkDragHandle>drag_handle</mat-icon>
+                {{ item }}
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
       <!-- Theme Info -->
       <mat-card>
         <mat-card-header>
