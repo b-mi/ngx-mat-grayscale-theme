@@ -1,5 +1,5 @@
 // Import knižničných štýlov s témami (nahradí default Angular Material tému)
-@import "../../ngx-mat-grayscale-theme/src/lib/grayscale-ui-theme.scss";
+@use "../../ngx-mat-grayscale-theme/src/lib/grayscale-ui-theme.scss";
 
 // Základné globálne štýly (zachované z originálu)
 html,
