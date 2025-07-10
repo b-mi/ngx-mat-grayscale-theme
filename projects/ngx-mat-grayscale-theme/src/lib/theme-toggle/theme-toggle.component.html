@@ -1,0 +1,51 @@
+<button 
+      mat-icon-button 
+      [matMenuTriggerFor]="themeMenu"
+      [matTooltip]="'Aktuálna téma: ' + themeService.getThemeLabel()">
+      <mat-icon>{{ getThemeIcon() }}</mat-icon>
+    </button>
+    
+    <mat-menu #themeMenu="matMenu">
+      <button 
+        mat-menu-item 
+        (click)="setTheme('light')"
+        [class.active]="themeService.getCurrentTheme() === 'light'">
+        <mat-icon>light_mode</mat-icon>
+        <span>Svetlá téma</span>
+      </button>
+      
+      <button 
+        mat-menu-item 
+        (click)="setTheme('dark')"
+        [class.active]="themeService.getCurrentTheme() === 'dark'">
+        <mat-icon>dark_mode</mat-icon>
+        <span>Tmavá téma</span>
+      </button>
+      
+      <mat-divider></mat-divider>
+      
+      <button 
+        mat-menu-item 
+        (click)="setTheme('light-high-contrast')"
+        [class.active]="themeService.getCurrentTheme() === 'light-high-contrast'">
+        <mat-icon>contrast</mat-icon>
+        <span>Svetlá (vysoký kontrast)</span>
+      </button>
+      
+      <button 
+        mat-menu-item 
+        (click)="setTheme('dark-high-contrast')"
+        [class.active]="themeService.getCurrentTheme() === 'dark-high-contrast'">
+        <mat-icon>contrast</mat-icon>
+        <span>Tmavá (vysoký kontrast)</span>
+      </button>
+      
+      <mat-divider></mat-divider>
+      
+      <button 
+        mat-menu-item 
+        (click)="toggleHighContrast()">
+        <mat-icon>{{ themeService.isHighContrast() ? 'visibility' : 'visibility_off' }}</mat-icon>
+        <span>{{ themeService.isHighContrast() ? 'Vypnúť' : 'Zapnúť' }} vysoký kontrast</span>
+      </button>
+    </mat-menu>

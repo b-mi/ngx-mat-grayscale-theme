@@ -1,0 +1,13 @@
+// Import knižničných štýlov s témami (nahradí default Angular Material tému)
+@import "../../ngx-mat-grayscale-theme/src/lib/grayscale-ui-theme.scss";
+
+// Základné globálne štýly (zachované z originálu)
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+

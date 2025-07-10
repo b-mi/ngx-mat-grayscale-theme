@@ -1,0 +1,102 @@
+    .spacer {
+      flex: 1 1 auto;
+    }
+    
+    .theme-info {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-left: 1rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      gap: 2rem;
+    }
+    
+    .demo-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .form-demo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      
+      mat-form-field {
+        width: 100%;
+      }
+    }
+    
+    .demo-table {
+      width: 100%;
+      border-collapse: collapse;
+      
+      th, td {
+        text-align: left;
+        padding: 0.5rem;
+      }
+    }
+    
+    .status-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid var(--mat-sys-outline-variant);
+      
+      &.status-active {
+        background: var(--mat-sys-primary-container);
+        color: var(--mat-sys-on-primary-container);
+      }
+      
+      &.status-inactive {
+        background: var(--mat-sys-surface-container-highest);
+        color: var(--mat-sys-on-surface-variant);
+      }
+    }
+    
+    .theme-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      
+      strong {
+        color: var(--mat-sys-on-surface);
+      }
+      
+      span {
+        color: var(--mat-sys-on-surface-variant);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+      }
+      
+      .demo-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .form-demo {
+        grid-template-columns: 1fr;
+      }
+      
+      .theme-info {
+        display: none;
+      }
+    }
