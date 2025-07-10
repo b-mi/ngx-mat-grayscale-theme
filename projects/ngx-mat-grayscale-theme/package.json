@@ -27,11 +27,11 @@
     "grayscale",
     "angular20"
   ],
-  "author": "Your Name",
+  "author": "b-mi",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/your-repo.git"
+    "url": "https://github.com/b-mi/ngx-mat-grayscale-theme"
   },
-  "homepage": "https://github.com/yourusername/your-repo#readme"
+  "homepage": "https://github.com/b-mi/ngx-mat-grayscale-theme"
 }
