@@ -25,7 +25,7 @@
     margin: 0 0 0.5rem 0;
     font-size: 1.1rem;
     font-weight: 500;
-    color: var(--mat-sys-on-surface);
+    // color: var(--mat-sys-on-surface); // Odstránené, spravuje téma
     border-bottom: 1px solid var(--mat-sys-outline-variant);
     padding-bottom: 0.5rem;
   }
@@ -68,7 +68,7 @@
   border-radius: 12px;
   font-size: 0.8rem;
   font-weight: 500;
-  border: 1px solid var(--mat-sys-outline-variant);
+  border: 1px solid var(--mat-sys-outline-variant); // Používa premennú témy
   
   &.status-active {
     background: var(--mat-sys-primary-container);
@@ -205,18 +205,18 @@ button[mat-fab], button[mat-mini-fab] {
   h4 {
     margin: 0 0 0.5rem 0;
     padding: 0.5rem;
-    background: var(--mat-sys-surface-container);
+    background: var(--mat-sys-surface-container); // Používa premennú témy
     border-radius: 4px;
     font-weight: 500;
     text-align: center;
-    border: 1px solid var(--mat-sys-outline-variant);
+    border: 1px solid var(--mat-sys-outline-variant); // Používa premennú témy
   }
 }
 
 .kanban-list {
   min-height: 200px;
-  background: var(--mat-sys-surface-container-lowest);
-  border: 1px solid var(--mat-sys-outline-variant);
+  background: var(--mat-sys-surface-container-lowest); // Používa premennú témy
+  border: 1px solid var(--mat-sys-outline-variant); // Používa premennú témy
   border-radius: 4px;
   padding: 0.5rem;
   display: flex;
@@ -225,8 +225,8 @@ button[mat-fab], button[mat-mini-fab] {
 }
 
 .kanban-item {
-  background: var(--mat-sys-surface-container);
-  border: 1px solid var(--mat-sys-outline-variant);
+  background: var(--mat-sys-surface-container); // Používa premennú témy
+  border: 1px solid var(--mat-sys-outline-variant); // Používa premennú témy
   border-radius: 4px;
   padding: 0.75rem;
   display: flex;
@@ -236,17 +236,17 @@ button[mat-fab], button[mat-mini-fab] {
   transition: all 0.2s ease;
   
   &:hover {
-    background: var(--mat-sys-surface-container-high);
+    background: var(--mat-sys-surface-container-high); // Používa premennú témy
   }
   
   mat-icon {
-    color: var(--mat-sys-on-surface-variant);
+    color: var(--mat-sys-on-surface-variant); // Používa premennú témy
   }
 }
 
 .sortable-list {
-  background: var(--mat-sys-surface-container-lowest);
-  border: 1px solid var(--mat-sys-outline-variant);
+  background: var(--mat-sys-surface-container-lowest); // Používa premennú témy
+  border: 1px solid var(--mat-sys-outline-variant); // Používa premennú témy
   border-radius: 4px;
   padding: 0.5rem;
   display: flex;
@@ -256,8 +256,8 @@ button[mat-fab], button[mat-mini-fab] {
 }
 
 .sortable-item {
-  background: var(--mat-sys-surface-container);
-  border: 1px solid var(--mat-sys-outline-variant);
+  background: var(--mat-sys-surface-container); // Používa premennú témy
+  border: 1px solid var(--mat-sys-outline-variant); // Používa premennú témy
   border-radius: 4px;
   padding: 0.75rem;
   display: flex;
@@ -267,11 +267,11 @@ button[mat-fab], button[mat-mini-fab] {
   transition: all 0.2s ease;
   
   &:hover {
-    background: var(--mat-sys-surface-container-high);
+    background: var(--mat-sys-surface-container-high); // Používa premennú témy
   }
   
   mat-icon {
-    color: var(--mat-sys-on-surface-variant);
+    color: var(--mat-sys-on-surface-variant); // Používa premennú témy
   }
 }
 
@@ -282,8 +282,8 @@ button[mat-fab], button[mat-mini-fab] {
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
               0 8px 10px 1px rgba(0, 0, 0, 0.14),
               0 3px 14px 2px rgba(0, 0, 0, 0.12);
-  background: var(--mat-sys-surface-container);
-  border: 1px solid var(--mat-sys-outline);
+  background: var(--mat-sys-surface-container); // Používa premennú témy
+  border: 1px solid var(--mat-sys-outline); // Používa premennú témy
 }
 
 .cdk-drag-placeholder {
@@ -380,21 +380,21 @@ button[mat-fab], button[mat-mini-fab] {
 // Dark theme specific adjustments
 [data-theme="dark"] {
   .demo-section h3 {
-    color: #c3c7cb;
+    // color: #c3c7cb; // Odstránené, spravuje téma
   }
   
   .demo-row span[matBadge] {
-    background: var(--mat-sys-surface-container-high);
+    background: var(--mat-sys-surface-container-high); // Používa premennú témy
   }
   
   .kanban-item {
-    background: var(--mat-sys-surface-container-high);
-    border-color: var(--mat-sys-outline-variant);
+    background: var(--mat-sys-surface-container-high); // Používa premennú témy
+    border-color: var(--mat-sys-outline-variant); // Používa premennú témy
   }
   
   .sortable-item {
-    background: var(--mat-sys-surface-container-high);
-    border-color: var(--mat-sys-outline-variant);
+    background: var(--mat-sys-surface-container-high); // Používa premennú témy
+    border-color: var(--mat-sys-outline-variant); // Používa premennú témy
   }
 }
 
@@ -410,6 +410,6 @@ button[mat-fab], button[mat-mini-fab] {
   }
   
   .demo-row span[matBadge] {
-    border: 2px solid var(--mat-sys-outline);
+    border: 2px solid var(--mat-sys-outline); // Používa premennú témy
   }
 }
