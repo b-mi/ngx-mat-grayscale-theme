@@ -133,12 +133,7 @@ body {
     color: var(--mat-sys-on-surface-variant) !important;
   }
 
-  p,
-  li,
-  span,
-  div {
-    color: var(--mat-sys-on-surface-variant) !important;
-  }
+
 
   @include mat.tooltip-overrides(
     (
@@ -176,26 +171,7 @@ body {
     }
   }
 
-  // **** ÚPRAVY PRE ODZNAKY (BADGES) - TMAVÁ TÉMA ****
-  @include mat.badge-color(
-    (
-      // Primary odznak
-      primary: (
-        container-color: var(--mat-sys-primary-container),
-        text-color: var(--mat-sys-on-primary-container),
-      ),
-      // Accent odznak (použijeme secondary-container)
-      accent: (
-        container-color: var(--mat-sys-secondary-container),
-        text-color: var(--mat-sys-on-secondary-container),
-      ),
-      // Warning odznak (použijeme error-container)
-      warn: (
-        container-color: var(--mat-sys-error-container),
-        text-color: var(--mat-sys-on-error-container),
-      ),
-    )
-  );
+ 
 }
 
 // High contrast verzie (bezo zmien v badge farbách, ak to nie je explicitne požadované)
