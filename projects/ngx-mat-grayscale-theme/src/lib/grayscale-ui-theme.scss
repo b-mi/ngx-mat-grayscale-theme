@@ -130,11 +130,14 @@ body {
     transition: background-color 5000s ease-in-out 0s;
   }
   
-  // OPRAVA: Tooltip v tmavej téme - konkrétne farby
+  // OPRAVA: Tooltip v tmavej téme - štýlovanie podľa dokumentácie
+  @include mat.tooltip-overrides((
+    container-color: var(--mat-sys-surface-container-high),
+    supporting-text-color: var(--mat-sys-on-surface),
+  ));
+
   .mat-mdc-tooltip {
-    background-color: #373c3f !important; // Tmavšie pozadie
-    color: #ffffff !important; // Biely text
-    border: 1px solid #5a5f62 !important; // Sivý border
+    border: 1px solid var(--mat-sys-outline-variant) !important;
   }
 }
 
@@ -194,10 +197,13 @@ body {
   }
   
   // OPRAVA: High contrast tooltip
+  @include mat.tooltip-overrides((
+    container-color: var(--mat-sys-surface-container-high),
+    supporting-text-color: var(--mat-sys-on-surface),
+  ));
+
   .mat-mdc-tooltip {
-    background-color: #373c3f !important; // Tmavšie pozadie
-    color: #ffffff !important; // Biely text
-    border: 2px solid #5a5f62 !important; // Hrubší border pre high contrast
+    border: 2px solid var(--mat-sys-outline-variant) !important;
   }
 }
 
