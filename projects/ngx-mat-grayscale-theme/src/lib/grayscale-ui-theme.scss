@@ -1,5 +1,5 @@
 // src/grayscale-ui-theme.scss 
-// TENTO súbor bude obsahovať aplikáciu témy + spartan úpravy
+// TENTO súbor bude obsahovať aplikáciu témy + grayscale úpravy
 // Vygenerovaný súbor zostáva nedotknutý!
 
 @use '@angular/material' as mat;
@@ -33,6 +33,33 @@ body {
 :root {
   --mat-button-filled-container-color: var(--mat-sys-primary-container);
   --mat-button-filled-label-text-color: var(--mat-sys-on-primary-container);
+}
+
+// OPRAVA: Form field wrapper pre svetlú tému - MDC premenné
+.mat-mdc-form-field {
+  --mdc-filled-text-field-container-color: #e5e9ed;
+  --mdc-outlined-text-field-container-color: #e5e9ed;
+  
+  .mat-mdc-text-field-wrapper {
+    background-color: #e5e9ed !important;
+    border: 1px solid var(--mat-sys-outline-variant) !important;
+  }
+}
+
+.mat-mdc-input-element {
+  background-color: #e5e9ed !important;
+  color: var(--mat-sys-on-surface) !important;
+}
+
+// OPRAVA: Chrome autofill hack pre svetlú tému - email/password polia
+.mat-mdc-input-element:-webkit-autofill,
+.mat-mdc-input-element:-webkit-autofill:hover,
+.mat-mdc-input-element:-webkit-autofill:focus,
+.mat-mdc-input-element:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #e5e9ed inset !important;
+  -webkit-text-fill-color: var(--mat-sys-on-surface) !important;
+  background-color: #e5e9ed !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 // Tmavá téma
@@ -74,6 +101,41 @@ body {
   .mat-toolbar {
     color: var(--mat-sys-on-surface) !important;
   }
+  
+  // OPRAVA: Form field pre tmavú tému - MDC premenné
+  .mat-mdc-form-field {
+    --mdc-filled-text-field-container-color: #2c3134;
+    --mdc-outlined-text-field-container-color: #2c3134;
+    
+    .mat-mdc-text-field-wrapper {
+      background-color: #2c3134 !important;
+      border: 1px solid var(--mat-sys-outline-variant) !important;
+    }
+  }
+  
+  // OPRAVA: Všetky input polia v tmavej téme
+  .mat-mdc-input-element {
+    background-color: #2c3134 !important;
+    color: var(--mat-sys-on-surface) !important;
+  }
+  
+  // OPRAVA: Chrome autofill hack pre email/password polia
+  .mat-mdc-input-element:-webkit-autofill,
+  .mat-mdc-input-element:-webkit-autofill:hover,
+  .mat-mdc-input-element:-webkit-autofill:focus,
+  .mat-mdc-input-element:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #2c3134 inset !important;
+    -webkit-text-fill-color: var(--mat-sys-on-surface) !important;
+    background-color: #2c3134 !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  
+  // OPRAVA: Tooltip v tmavej téme - konkrétne farby
+  .mat-mdc-tooltip {
+    background-color: #373c3f !important; // Tmavšie pozadie
+    color: #ffffff !important; // Biely text
+    border: 1px solid #5a5f62 !important; // Sivý border
+  }
 }
 
 // High contrast verzie
@@ -102,9 +164,44 @@ body {
   ));
   
   @include theme-colors.high-contrast-overrides(dark);
+  
+  // OPRAVA: High contrast form field - MDC premenné
+  .mat-mdc-form-field {
+    --mdc-filled-text-field-container-color: #2c3134;
+    --mdc-outlined-text-field-container-color: #2c3134;
+    
+    .mat-mdc-text-field-wrapper {
+      background-color: #2c3134 !important;
+      border: 2px solid var(--mat-sys-outline) !important;
+    }
+  }
+  
+  // OPRAVA: High contrast input polia
+  .mat-mdc-input-element {
+    background-color: #2c3134 !important; // Rovnaké ako wrapper
+    color: var(--mat-sys-on-surface) !important;
+  }
+  
+  // OPRAVA: High contrast Chrome autofill
+  .mat-mdc-input-element:-webkit-autofill,
+  .mat-mdc-input-element:-webkit-autofill:hover,
+  .mat-mdc-input-element:-webkit-autofill:focus,
+  .mat-mdc-input-element:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #2c3134 inset !important;
+    -webkit-text-fill-color: var(--mat-sys-on-surface) !important;
+    background-color: #2c3134 !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  
+  // OPRAVA: High contrast tooltip
+  .mat-mdc-tooltip {
+    background-color: #373c3f !important; // Tmavšie pozadie
+    color: #ffffff !important; // Biely text
+    border: 2px solid #5a5f62 !important; // Hrubší border pre high contrast
+  }
 }
 
-// SPARTAN UI ÚPRAVY - odstránenie tieňov
+// GRAYSCALE UI ÚPRAVY - odstránenie tieňov
 .mat-mdc-card {
   box-shadow: none !important;
   border: 1px solid var(--mat-sys-outline-variant);
