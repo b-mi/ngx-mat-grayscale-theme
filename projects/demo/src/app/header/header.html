@@ -1,0 +1,25 @@
+<mat-toolbar class="header-toolbar">
+  <span class="logo">Grayscale Theme Demo</span>
+  <span class="theme-info">{{ themeService.getThemeLabel() }}</span>
+  
+  <div class="nav-buttons">
+    <button mat-button 
+            routerLink="/demo" 
+            routerLinkActive="active-nav"
+            matTooltip="Material Components Demo">
+      <mat-icon>widgets</mat-icon>
+      <span class="nav-text">Components</span>
+    </button>
+    
+    <button mat-button 
+            routerLink="/tokens" 
+            routerLinkActive="active-nav"
+            matTooltip="Design Tokens Showcase">
+      <mat-icon>palette</mat-icon>
+      <span class="nav-text">Design Tokens</span>
+    </button>
+  </div>
+  
+  <span class="spacer"></span>
+  <mat-gray-theme-toggle></mat-gray-theme-toggle>
+</mat-toolbar>

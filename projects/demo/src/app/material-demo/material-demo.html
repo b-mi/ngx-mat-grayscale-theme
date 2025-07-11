@@ -1,0 +1,496 @@
+<div class="container">
+    <!-- Úvodná karta -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Grayscale Theme for Angular Material 20</mat-card-title>
+            <mat-card-subtitle>Minimalistická téma s profesionálnymi sivými odtieňmi</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Táto téma je vytvorená pre Angular Material 20 a obsahuje:</p>
+            <ul>
+                <li>Profesionálne sivé odtiene bez farebných akcentov</li>
+                <li>Odstránenie všetkých tieňov pre čistý vzhľad</li>
+                <li>Jemné ohraničenia namiesto tieňov</li>
+                <li>Podporu pre svetlú, tmavú a high contrast témy</li>
+                <li>Accessibility optimalizáciu</li>
+            </ul>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Buttons & Icons -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Buttons & Icons</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="demo-section">
+                <h3>Basic Buttons</h3>
+                <div class="demo-row">
+                    <button mat-button>Basic</button>
+                    <button mat-raised-button>Raised</button>
+                    <button mat-stroked-button>Stroked</button>
+                    <button mat-flat-button>Flat</button>
+                </div>
+
+                <h3>Themed Buttons</h3>
+                <div class="demo-row">
+                    <button mat-raised-button color="primary">Primary</button>
+                    <button mat-raised-button color="accent">Accent</button>
+                    <button mat-raised-button color="warn">Warn</button>
+                    <button mat-raised-button disabled>Disabled</button>
+                </div>
+
+                <h3>Icon Buttons</h3>
+                <div class="demo-row">
+                    <button mat-icon-button><mat-icon>home</mat-icon></button>
+                    <button mat-icon-button color="primary"><mat-icon>favorite</mat-icon></button>
+                    <button mat-icon-button color="accent"><mat-icon>bookmark</mat-icon></button>
+                    <button mat-icon-button disabled><mat-icon>info</mat-icon></button>
+                </div>
+
+                <h3>FAB Buttons</h3>
+                <div class="demo-row">
+                    <button mat-fab><mat-icon>add</mat-icon></button>
+                    <button mat-mini-fab><mat-icon>edit</mat-icon></button>
+                    <button mat-fab color="primary"><mat-icon>share</mat-icon></button>
+                    <button mat-fab color="accent"><mat-icon>delete</mat-icon></button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Form Controls -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Form Controls</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="demo-section">
+                <h3>Input Fields</h3>
+                <div class="form-demo">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Enter your name">
+                        <mat-hint>Enter your full name</mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" placeholder="email@example.com">
+                        <mat-error>Please enter a valid email</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" placeholder="Password">
+                        <mat-icon matSuffix>visibility</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput rows="3" placeholder="Enter description"></textarea>
+                    </mat-form-field>
+                </div>
+
+                <h3>Select & Autocomplete</h3>
+                <div class="form-demo">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Country</mat-label>
+                        <mat-select>
+                            <mat-option value="sk">Slovakia</mat-option>
+                            <mat-option value="cz">Czech Republic</mat-option>
+                            <mat-option value="pl">Poland</mat-option>
+                            <mat-option value="hu">Hungary</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Multiple Selection</mat-label>
+                        <mat-select multiple>
+                            <mat-option value="angular">Angular</mat-option>
+                            <mat-option value="react">React</mat-option>
+                            <mat-option value="vue">Vue</mat-option>
+                            <mat-option value="svelte">Svelte</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <h3>Checkboxes & Radio</h3>
+                <div class="demo-row">
+                    <mat-checkbox>Check me</mat-checkbox>
+                    <mat-checkbox checked>Checked</mat-checkbox>
+                    <mat-checkbox disabled>Disabled</mat-checkbox>
+                    <mat-checkbox indeterminate>Indeterminate</mat-checkbox>
+                </div>
+
+                <mat-radio-group>
+                    <mat-radio-button value="1">Option 1</mat-radio-button>
+                    <mat-radio-button value="2">Option 2</mat-radio-button>
+                    <mat-radio-button value="3" disabled>Disabled</mat-radio-button>
+                </mat-radio-group>
+
+                <h3>Switches & Sliders</h3>
+                <div class="demo-row">
+                    <mat-slide-toggle>Slide me</mat-slide-toggle>
+                    <mat-slide-toggle checked>Checked</mat-slide-toggle>
+                    <mat-slide-toggle disabled>Disabled</mat-slide-toggle>
+                </div>
+
+                <div class="demo-row">
+                    <mat-slider min="0" max="100" step="1" value="50">
+                        <input matSliderThumb>
+                    </mat-slider>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Navigation -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Navigation</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="demo-section">
+                <h3>Tabs</h3>
+                <mat-tab-group>
+                    <mat-tab label="First">
+                        <p>Content for first tab</p>
+                    </mat-tab>
+                    <mat-tab label="Second">
+                        <p>Content for second tab</p>
+                    </mat-tab>
+                    <mat-tab label="Third" disabled>
+                        <p>This tab is disabled</p>
+                    </mat-tab>
+                </mat-tab-group>
+
+                <h3>Stepper</h3>
+                <mat-stepper>
+                    <mat-step label="Step 1">
+                        <p>First step content</p>
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </mat-step>
+                    <mat-step label="Step 2">
+                        <p>Second step content</p>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </mat-step>
+                    <mat-step label="Step 3">
+                        <p>Final step content</p>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                        </div>
+                    </mat-step>
+                </mat-stepper>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Layout -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Layout & Containers</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="demo-section">
+                <h3>Cards</h3>
+                <div class="card-demo">
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title>Card Title</mat-card-title>
+                            <mat-card-subtitle>Card Subtitle</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>This is the card content area.</p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button mat-button>ACTION 1</button>
+                            <button mat-button>ACTION 2</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+
+                <h3>Expansion Panel</h3>
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Personal Data</mat-panel-title>
+                            <mat-panel-description>Type your name and age</mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <mat-form-field>
+                            <mat-label>First name</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Age</mat-label>
+                            <input matInput type="number" min="1">
+                        </mat-form-field>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Destination</mat-panel-title>
+                            <mat-panel-description>Type the country name</mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <mat-form-field>
+                            <mat-label>Country</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </mat-expansion-panel>
+                </mat-accordion>
+
+                <h3>Dividers</h3>
+                <p>Content above divider</p>
+                <mat-divider></mat-divider>
+                <p>Content below divider</p>
+                <mat-divider [vertical]="true"></mat-divider>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Data Table -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Data Table</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="demo-section">
+                <table mat-table [dataSource]="dataSource" class="demo-table">
+                    <!-- Checkbox Column -->
+                    <ng-container matColumnDef="select">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <mat-checkbox></mat-checkbox>
+                        </th>
+                        <td mat-cell *matCellDef="let row">
+                            <mat-checkbox></mat-checkbox>
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef>Name</th>
+                        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+                    </ng-container>
+
+                    <!-- Email Column -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef>Email</th>
+                        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+                    </ng-container>
+
+                    <!-- Role Column -->
+                    <ng-container matColumnDef="role">
+                        <th mat-header-cell *matHeaderCellDef>Role</th>
+                        <td mat-cell *matCellDef="let element">{{ element.role }}</td>
+                    </ng-container>
+
+                    <!-- Status Column -->
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef>Status</th>
+                        <td mat-cell *matCellDef="let element">
+                            <span class="status-badge" [class]="'status-' + element.status">
+                                {{ element.status }}
+                            </span>
+                        </td>
+                    </ng-container>
+
+                    <!-- Actions Column -->
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef>Actions</th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button [matMenuTriggerFor]="menu">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item>
+                                    <mat-icon>edit</mat-icon>
+                                    <span>Edit</span>
+                                </button>
+                                <button mat-menu-item>
+                                    <mat-icon>delete</mat-icon>
+                                    <span>Delete</span>
+                                </button>
+                            </mat-menu>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Indicators -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Indicators</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="demo-section">
+                <h3>Progress Bars</h3>
+                <div class="progress-demo">
+                    <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                    <mat-progress-bar mode="buffer" value="60" bufferValue="80"></mat-progress-bar>
+                </div>
+
+                <h3>Progress Spinners</h3>
+                <div class="demo-row">
+                    <mat-progress-spinner mode="determinate" value="75"></mat-progress-spinner>
+                    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+                    <mat-spinner></mat-spinner>
+                </div>
+
+                <h3>Badges</h3>
+                <div class="demo-row">
+                    <span matBadge="4" matBadgeOverlap="false">Text with a badge</span>
+                    <span matBadge="1" matBadgeColor="accent">Accent badge</span>
+                    <span matBadge="22" matBadgeColor="warn">Warning badge</span>
+                </div>
+
+                <h3>Chips</h3>
+                <mat-chip-set>
+                    <mat-chip>One fish</mat-chip>
+                    <mat-chip>Two fish</mat-chip>
+                    <mat-chip color="accent" selected>Accent fish</mat-chip>
+                    <mat-chip color="warn" selected>Warn fish</mat-chip>
+                </mat-chip-set>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Popups & Modals -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Popups & Modals</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="demo-section">
+                <h3>Dialogs & Snackbars</h3>
+                <div class="demo-row">
+                    <button mat-raised-button (click)="openDialog()">Open Dialog</button>
+                    <button mat-raised-button (click)="openSnackBar()">Show Snackbar</button>
+                </div>
+
+                <h3>Tooltips</h3>
+                <div class="demo-row">
+                    <button mat-raised-button matTooltip="This is a tooltip">Tooltip</button>
+                    <button mat-raised-button matTooltip="Tooltip below" matTooltipPosition="below">Below</button>
+                    <button mat-raised-button matTooltip="Tooltip left" matTooltipPosition="left">Left</button>
+                    <button mat-raised-button matTooltip="Tooltip right" matTooltipPosition="right">Right</button>
+                </div>
+
+                <h3>Menu</h3>
+                <div class="demo-row">
+                    <button mat-button [matMenuTriggerFor]="appMenu">Menu</button>
+                    <mat-menu #appMenu="matMenu">
+                        <button mat-menu-item>
+                            <mat-icon>dialpad</mat-icon>
+                            <span>Redial</span>
+                        </button>
+                        <button mat-menu-item disabled>
+                            <mat-icon>voicemail</mat-icon>
+                            <span>Check voice mail</span>
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>notifications_off</mat-icon>
+                            <span>Disable alerts</span>
+                        </button>
+                    </mat-menu>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Drag & Drop -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Drag & Drop (CDK)</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="demo-section">
+                <h3>Kanban Board</h3>
+                <div class="kanban-board">
+                    <div class="kanban-column">
+                        <h4>To Do</h4>
+                        <div class="kanban-list" cdkDropList #todoListRef="cdkDropList" [cdkDropListData]="todoList"
+                            [cdkDropListConnectedTo]="[inProgressListRef, doneListRef]"
+                            (cdkDropListDropped)="onDrop($event)">
+                            <div class="kanban-item" *ngFor="let item of todoList" cdkDrag>
+                                <mat-icon cdkDragHandle>drag_handle</mat-icon>
+                                {{ item }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kanban-column">
+                        <h4>In Progress</h4>
+                        <div class="kanban-list" cdkDropList #inProgressListRef="cdkDropList"
+                            [cdkDropListData]="inProgressList" [cdkDropListConnectedTo]="[todoListRef, doneListRef]"
+                            (cdkDropListDropped)="onDrop($event)">
+                            <div class="kanban-item" *ngFor="let item of inProgressList" cdkDrag>
+                                <mat-icon cdkDragHandle>drag_handle</mat-icon>
+                                {{ item }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kanban-column">
+                        <h4>Done</h4>
+                        <div class="kanban-list" cdkDropList #doneListRef="cdkDropList" [cdkDropListData]="doneList"
+                            [cdkDropListConnectedTo]="[todoListRef, inProgressListRef]"
+                            (cdkDropListDropped)="onDrop($event)">
+                            <div class="kanban-item" *ngFor="let item of doneList" cdkDrag>
+                                <mat-icon cdkDragHandle>drag_handle</mat-icon>
+                                {{ item }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Simple Sortable List</h3>
+                <div class="sortable-list" cdkDropList (cdkDropListDropped)="onDrop($event)">
+                    <div class="sortable-item" *ngFor="let item of todoList" cdkDrag>
+                        <mat-icon cdkDragHandle>drag_handle</mat-icon>
+                        {{ item }}
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Theme Info -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Theme Information</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="theme-info-grid">
+                <div class="info-item">
+                    <strong>Current Theme:</strong>
+                    <span>{{ themeService.getThemeLabel() }}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Type:</strong>
+                    <span>{{ themeService.isDark() ? 'Dark' : 'Light' }}</span>
+                </div>
+                <div class="info-item">
+                    <strong>High Contrast:</strong>
+                    <span>{{ themeService.isHighContrast() ? 'Enabled' : 'Disabled' }}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Colors:</strong>
+                    <span>Grayscale Tones</span>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

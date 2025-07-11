@@ -1,0 +1,534 @@
+// ngx-mat-grayscale-theme/src/lib/material-tokens-showcase/material-tokens-showcase.component.scss
+
+.tokens-showcase {
+    padding: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .header-card {
+        margin-bottom: 24px;
+        background: var(--mat-sys-surface-container-low);
+
+        mat-card-title {
+            color: var(--mat-sys-primary);
+            font: var(--mat-sys-headline-medium);
+        }
+
+        mat-card-subtitle {
+            color: var(--mat-sys-on-surface-variant);
+            font: var(--mat-sys-body-medium);
+        }
+    }
+
+    .tokens-tabs {
+        background: var(--mat-sys-surface);
+        border-radius: var(--mat-sys-corner-large);
+        box-shadow: var(--mat-sys-level1);
+
+        .tab-content {
+            padding: 24px;
+        }
+    }
+
+    // Search section
+    .search-section {
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: center;
+
+        .search-field {
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+
+    // Category sections
+    .category-section {
+        margin-bottom: 48px;
+
+        .category-title {
+            font: var(--mat-sys-headline-small);
+            color: var(--mat-sys-primary);
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--mat-sys-outline-variant);
+        }
+    }
+
+    // Tokens grid
+    .tokens-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 16px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // Individual token card
+    .token-card {
+        display: flex;
+        align-items: center;
+        background: var(--mat-sys-surface-container);
+        border: 1px solid var(--mat-sys-outline-variant);
+        border-radius: var(--mat-sys-corner-medium);
+        padding: 16px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+
+        &:hover {
+            background: var(--mat-sys-surface-container-high);
+            box-shadow: var(--mat-sys-level2);
+            transform: translateY(-2px);
+        }
+
+        .color-preview {
+            width: 100px;
+            height: 80px;
+            border-radius: var(--mat-sys-corner-small);
+            margin-right: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--mat-sys-outline-variant);
+            box-shadow: var(--mat-sys-level1);
+            flex-shrink: 0;
+
+            .sample-text {
+                font: var(--mat-sys-label-medium);
+                font-weight: 600;
+                text-align: center;
+                padding: 4px;
+            }
+        }
+
+        .token-info {
+            flex: 1;
+            min-width: 0;
+
+            .token-name {
+                font: var(--mat-sys-title-medium);
+                color: var(--mat-sys-on-surface);
+                margin-bottom: 4px;
+            }
+
+            .token-variable {
+                font-family: "Courier New", monospace;
+                font-size: 12px;
+                color: var(--mat-sys-primary);
+                background: var(--mat-sys-primary-container);
+                padding: 2px 6px;
+                border-radius: var(--mat-sys-corner-extra-small);
+                display: inline-block;
+                margin-bottom: 4px;
+            }
+
+            .token-value {
+                font-family: "Courier New", monospace;
+                font-size: 11px;
+                color: var(--mat-sys-on-surface-variant);
+                margin-bottom: 4px;
+            }
+
+            .token-description {
+                font: var(--mat-sys-body-small);
+                color: var(--mat-sys-on-surface-variant);
+                line-height: 1.3;
+            }
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        &:hover .copy-button {
+            opacity: 1;
+        }
+    }
+
+    // Typography section
+    .typography-section {
+        .typography-card {
+            display: flex;
+            align-items: center;
+            background: var(--mat-sys-surface-container);
+            border: 1px solid var(--mat-sys-outline-variant);
+            border-radius: var(--mat-sys-corner-medium);
+            padding: 20px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+
+            &:hover {
+                background: var(--mat-sys-surface-container-high);
+                box-shadow: var(--mat-sys-level2);
+            }
+
+            .typography-preview {
+                flex: 2;
+                color: var(--mat-sys-on-surface);
+                margin-right: 24px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                @media (max-width: 768px) {
+                    white-space: normal;
+                    overflow: visible;
+                }
+            }
+
+            .typography-info {
+                flex: 1;
+                min-width: 200px;
+
+                .typography-name {
+                    font: var(--mat-sys-title-medium);
+                    color: var(--mat-sys-on-surface);
+                    margin-bottom: 4px;
+                }
+
+                .typography-variable {
+                    font-family: "Courier New", monospace;
+                    font-size: 12px;
+                    color: var(--mat-sys-primary);
+                    background: var(--mat-sys-primary-container);
+                    padding: 2px 6px;
+                    border-radius: var(--mat-sys-corner-extra-small);
+                    display: inline-block;
+                    margin-bottom: 6px;
+                }
+
+                .typography-specs {
+                    font: var(--mat-sys-body-small);
+                    color: var(--mat-sys-on-surface-variant);
+                    margin-bottom: 4px;
+                }
+
+                .typography-description {
+                    font: var(--mat-sys-body-small);
+                    color: var(--mat-sys-on-surface-variant);
+                }
+            }
+
+            .copy-button {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+            }
+
+            &:hover .copy-button {
+                opacity: 1;
+            }
+        }
+    }
+
+    // Elevation grid
+    .elevation-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+
+        .elevation-card {
+            background: var(--mat-sys-surface);
+            border-radius: var(--mat-sys-corner-medium);
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+            }
+
+            .elevation-name {
+                font: var(--mat-sys-title-medium);
+                color: var(--mat-sys-on-surface);
+                margin-bottom: 8px;
+            }
+
+            .elevation-variable {
+                font-family: "Courier New", monospace;
+                font-size: 11px;
+                color: var(--mat-sys-primary);
+                background: var(--mat-sys-primary-container);
+                padding: 2px 6px;
+                border-radius: var(--mat-sys-corner-extra-small);
+                display: inline-block;
+                margin-bottom: 8px;
+            }
+
+            .elevation-usage {
+                font: var(--mat-sys-body-small);
+                color: var(--mat-sys-on-surface-variant);
+            }
+        }
+    }
+
+    // Corner grid
+    .corner-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 16px;
+
+        .corner-card {
+            background: var(--mat-sys-surface-container);
+            border: 2px solid var(--mat-sys-outline-variant);
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover {
+                background: var(--mat-sys-surface-container-high);
+                border-color: var(--mat-sys-outline);
+            }
+
+            .corner-name {
+                font: var(--mat-sys-title-small);
+                color: var(--mat-sys-on-surface);
+                margin-bottom: 8px;
+            }
+
+            .corner-variable {
+                font-family: "Courier New", monospace;
+                font-size: 10px;
+                color: var(--mat-sys-primary);
+                background: var(--mat-sys-primary-container);
+                padding: 2px 4px;
+                border-radius: var(--mat-sys-corner-extra-small);
+                display: inline-block;
+                margin-bottom: 4px;
+            }
+
+            .corner-value {
+                font: var(--mat-sys-body-small);
+                color: var(--mat-sys-on-surface-variant);
+            }
+        }
+    }
+
+    // Examples section
+    .examples-section {
+        .example-card {
+            background: var(--mat-sys-surface-container);
+            border-radius: var(--mat-sys-corner-large);
+            padding: 24px;
+            margin-bottom: 24px;
+
+            h4 {
+                font: var(--mat-sys-title-large);
+                color: var(--mat-sys-primary);
+                margin-bottom: 16px;
+            }
+
+            .example-preview {
+                margin-bottom: 16px;
+                padding: 16px;
+                border-radius: var(--mat-sys-corner-medium);
+
+                &.primary-button-example {
+                    background: var(--mat-sys-primary);
+                    color: var(--mat-sys-on-primary);
+                    display: inline-block;
+                    border-radius: var(--mat-sys-corner-medium);
+                    box-shadow: var(--mat-sys-level2);
+                    font: var(--mat-sys-label-large);
+                    font-weight: 600;
+                }
+
+                &.card-example {
+                    background: var(--mat-sys-surface-container);
+                    color: var(--mat-sys-on-surface);
+                    border: 1px solid var(--mat-sys-outline-variant);
+                    border-radius: var(--mat-sys-corner-large);
+                    box-shadow: var(--mat-sys-level3);
+
+                    .card-header {
+                        font: var(--mat-sys-title-medium);
+                        margin-bottom: 8px;
+                        padding-bottom: 8px;
+                        border-bottom: 1px solid var(--mat-sys-outline-variant);
+                    }
+
+                    .card-content {
+                        font: var(--mat-sys-body-medium);
+                        color: var(--mat-sys-on-surface-variant);
+                    }
+                }
+
+                &.error-example {
+                    background: var(--mat-sys-error-container);
+                    color: var(--mat-sys-on-error-container);
+                    border-radius: var(--mat-sys-corner-small);
+                    border-left: 4px solid var(--mat-sys-error);
+                    font: var(--mat-sys-body-medium);
+                }
+            }
+
+            .example-code {
+                background: var(--mat-sys-surface-container-highest);
+                color: var(--mat-sys-on-surface);
+                padding: 16px;
+                border-radius: var(--mat-sys-corner-small);
+                border: 1px solid var(--mat-sys-outline-variant);
+                font-family: "Courier New", monospace;
+                font-size: 12px;
+                line-height: 1.4;
+                overflow-x: auto;
+                white-space: pre;
+            }
+        }
+    }
+
+    // Color pair specific styles
+    .color-pair-card {
+        .pair-preview {
+            position: relative;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .pair-sample-text {
+                font: var(--mat-sys-title-medium);
+                font-weight: 600;
+                text-align: center;
+                margin-bottom: auto;
+            }
+
+            .pair-variables {
+                display: flex;
+                gap: 4px;
+                margin-top: auto;
+
+                .bg-badge,
+                .text-badge {
+                    font-size: 9px;
+                    font-weight: 700;
+                    padding: 2px 4px;
+                    border-radius: 2px;
+                    background: rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(4px);
+                }
+            }
+        }
+
+        .pair-token-variables {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-bottom: 4px;
+
+            .bg-var {
+                border-left: 3px solid var(--mat-sys-primary);
+            }
+
+            .text-var {
+                border-left: 3px solid var(--mat-sys-secondary);
+            }
+        }
+
+        .pair-values {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            margin-bottom: 4px;
+        }
+
+        .copy-buttons {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+
+            .copy-button {
+                width: 32px;
+                height: 32px;
+
+                &.copy-class-btn {
+                    background: var(--mat-sys-primary-container);
+                    color: var(--mat-sys-on-primary-container);
+                }
+
+                &.copy-bg-btn {
+                    background: var(--mat-sys-secondary-container);
+                    color: var(--mat-sys-on-secondary-container);
+                }
+
+                &.copy-text-btn {
+                    background: var(--mat-sys-tertiary-container);
+                    color: var(--mat-sys-on-tertiary-container);
+                }
+            }
+        }
+
+        &:hover .copy-buttons {
+            opacity: 1;
+        }
+    }
+
+    // Single token specific styles
+    .single-token-card {
+        .single-preview {
+            border: 1px solid var(--mat-sys-outline);
+        }
+    }
+
+    // Responsive adjustments
+    @media (max-width: 768px) {
+        padding: 8px;
+
+        .tokens-tabs .tab-content {
+            padding: 16px;
+        }
+
+        .token-card {
+            flex-direction: column;
+            text-align: center;
+
+            .color-preview {
+                margin-right: 0;
+                margin-bottom: 12px;
+            }
+
+            .copy-button {
+                position: static;
+                opacity: 1;
+                margin-top: 8px;
+            }
+        }
+
+        .typography-card {
+            flex-direction: column;
+            text-align: center;
+
+            .typography-preview {
+                margin-right: 0;
+                margin-bottom: 16px;
+                flex: none;
+            }
+
+            .typography-info {
+                min-width: auto;
+            }
+
+            .copy-button {
+                position: static;
+                opacity: 1;
+                margin-top: 8px;
+            }
+        }
+    }
+}

@@ -1,0 +1,161 @@
+<div class="tokens-showcase">
+    <mat-card class="header-card">
+        <mat-card-header>
+            <mat-card-title>🎨 Material Design Tokens Showcase</mat-card-title>
+            <mat-card-subtitle>All colors and typography</mat-card-subtitle>
+        </mat-card-header>
+    </mat-card>
+
+    <mat-tab-group class="tokens-tabs">
+        <!-- Colors Tab -->
+        <mat-tab label="🎨 Colors">
+            <div class="tab-content">
+                <div class="search-section">
+                    <mat-form-field appearance="outline" class="search-field">
+                        <mat-label>Search token...</mat-label>
+                        <input matInput [value]="searchTerm()" (input)="searchTerm.set($any($event.target).value)"
+                            placeholder="Napr. primary, surface, outline...">
+                        <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                @for (category of filteredColorCategories(); track category.name) {
+                <div class="category-section">
+                    <h3 class="category-title">{{ category.name }}</h3>
+                    <div class="tokens-grid">
+                        
+                        <!-- Color Pairs -->
+                        @for (pair of category.colorPairs; track pair.className) {
+                        <div class="token-card color-pair-card">
+                            <div class="color-preview pair-preview" 
+                                 [style.background-color]="'var(' + pair.backgroundVariable + ')'"
+                                 [style.color]="'var(' + pair.textVariable + ')'">
+                                <div class="pair-sample-text">{{ pair.name }}</div>
+                                <div class="pair-variables">
+                                    <span class="bg-badge">BG</span>
+                                    <span class="text-badge">TEXT</span>
+                                </div>
+                            </div>
+                            <div class="token-info">
+                                <div class="token-name">{{ pair.name }}</div>
+                                <div class="pair-token-variables">
+                                    <div class="token-variable bg-var">{{ pair.backgroundVariable }}</div>
+                                    <div class="token-variable text-var">{{ pair.textVariable }}</div>
+                                </div>
+                                <div class="token-description">{{ pair.description }}</div>
+                            </div>
+                            <div class="copy-buttons">
+                                <button mat-icon-button 
+                                        class="copy-button copy-class-btn"
+                                        [matTooltip]="'Kopírovať CSS class: .' + pair.className"
+                                        (click)="copyColorPairClass(pair)">
+                                    <mat-icon>code</mat-icon>
+                                </button>
+                                <button mat-icon-button 
+                                        class="copy-button copy-bg-btn"
+                                        [matTooltip]="'Kopírovať background variable'"
+                                        (click)="copyToClipboard(pair.backgroundVariable)">
+                                    <mat-icon>palette</mat-icon>
+                                </button>
+                                <button mat-icon-button 
+                                        class="copy-button copy-text-btn"
+                                        [matTooltip]="'Kopírovať text variable'"
+                                        (click)="copyToClipboard(pair.textVariable)">
+                                    <mat-icon>text_fields</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                        }
+
+                        <!-- Single Color Tokens -->
+                        @for (token of category.singleTokens; track token.variable) {
+                        <div class="token-card single-token-card" (click)="copyToClipboard(token.variable)">
+                            <div class="color-preview single-preview" 
+                                 [style.background-color]="'var(' + token.variable + ')'">
+                            </div>
+                            <div class="token-info">
+                                <div class="token-name">{{ token.name }}</div>
+                                <div class="token-variable">{{ token.variable }}</div>
+                                <div class="token-description">{{ token.description }}</div>
+                            </div>
+                            <button mat-icon-button 
+                                    class="copy-button"
+                                    [matTooltip]="'Kopírovať ' + token.variable"
+                                    (click)="$event.stopPropagation(); copyToClipboard(token.variable)">
+                                <mat-icon>content_copy</mat-icon>
+                            </button>
+                        </div>
+                        }
+                    </div>
+                </div>
+                }
+            </div>
+        </mat-tab>
+
+        <!-- Typography Tab -->
+        <mat-tab label="📝 Typography">
+            <div class="tab-content">
+                <div class="typography-section">
+                    @for (typo of typographyTokens; track typo.variable) {
+                    <div class="typography-card" (click)="copyToClipboard(typo.variable)">
+                        <div class="typography-preview" [style.font]="'var(' + typo.variable + ')'">
+                            {{ typo.name }} - Lorem ipsum dolor sit amet
+                        </div>
+                        <div class="typography-info">
+                            <div class="typography-name">{{ typo.name }}</div>
+                            <div class="typography-variable">{{ typo.variable }}</div>
+                            <div class="typography-specs">
+                                Size: {{ typo.size }} | Weight: {{ typo.weight }} | Line Height: {{ typo.lineHeight }}
+                            </div>
+                            <div class="typography-description">{{ typo.description }}</div>
+                        </div>
+                        <button mat-icon-button 
+                                class="copy-button"
+                                [matTooltip]="'Kopírovať ' + typo.variable"
+                                (click)="$event.stopPropagation(); copyToClipboard(typo.variable)">
+                            <mat-icon>content_copy</mat-icon>
+                        </button>
+                    </div>
+                    }
+                </div>
+            </div>
+        </mat-tab>
+
+        <!-- Elevation & Corners Tab -->
+        <mat-tab label="📦 Elevation & Corners">
+            <div class="tab-content">
+                <!-- Elevation Examples -->
+                <div class="category-section">
+                    <h3 class="category-title">Elevation Levels</h3>
+                    <div class="elevation-grid">
+                        @for (level of elevationLevels; track level.name) {
+                        <div class="elevation-card" 
+                             [style.box-shadow]="'var(' + level.variable + ')'"
+                             (click)="copyToClipboard(level.variable)">
+                            <div class="elevation-name">{{ level.name }}</div>
+                            <div class="elevation-variable">{{ level.variable }}</div>
+                            <div class="elevation-usage">{{ level.usage }}</div>
+                        </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Corner Radius Examples -->
+                <div class="category-section">
+                    <h3 class="category-title">Corner Radius</h3>
+                    <div class="corner-grid">
+                        @for (corner of cornerTokens; track corner.variable) {
+                        <div class="corner-card" 
+                             [style.border-radius]="'var(' + corner.variable + ')'"
+                             (click)="copyToClipboard(corner.variable)">
+                            <div class="corner-name">{{ corner.name }}</div>
+                            <div class="corner-variable">{{ corner.variable }}</div>
+                            <div class="corner-value">{{ corner.value }}</div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
