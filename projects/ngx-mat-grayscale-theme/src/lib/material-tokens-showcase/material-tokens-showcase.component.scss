@@ -86,7 +86,7 @@
 
         .color-preview {
             width: 100px;
-            height: 80px;
+            height: 90px;
             border-radius: var(--mat-sys-corner-small);
             margin-right: 16px;
             display: flex;
@@ -95,13 +95,6 @@
             border: 2px solid var(--mat-sys-outline-variant);
             box-shadow: var(--mat-sys-level1);
             flex-shrink: 0;
-
-            .sample-text {
-                font: var(--mat-sys-label-medium);
-                font-weight: 600;
-                text-align: center;
-                padding: 4px;
-            }
         }
 
         .token-info {
@@ -125,13 +118,6 @@
                 margin-bottom: 4px;
             }
 
-            .token-value {
-                font-family: "Courier New", monospace;
-                font-size: 11px;
-                color: var(--mat-sys-on-surface-variant);
-                margin-bottom: 4px;
-            }
-
             .token-description {
                 font: var(--mat-sys-body-small);
                 color: var(--mat-sys-on-surface-variant);
@@ -139,7 +125,8 @@
             }
         }
 
-        .copy-button {
+        // SINGLE token copy button (absolute positioning)
+        > .copy-button {
             position: absolute;
             top: 8px;
             right: 8px;
@@ -147,7 +134,7 @@
             transition: opacity 0.2s ease;
         }
 
-        &:hover .copy-button {
+        &:hover > .copy-button {
             opacity: 1;
         }
     }
@@ -392,90 +379,28 @@
 
     // Color pair specific styles
     .color-pair-card {
+        cursor: default !important; // Zruš pointer cursor pre pair karty
+
         .pair-preview {
             position: relative;
             flex-direction: column;
             justify-content: space-between;
-
-            .pair-sample-text {
-                font: var(--mat-sys-title-medium);
-                font-weight: 600;
-                text-align: center;
-                margin-bottom: auto;
-            }
-
-            .pair-variables {
-                display: flex;
-                gap: 4px;
-                margin-top: auto;
-
-                .bg-badge,
-                .text-badge {
-                    font-size: 9px;
-                    font-weight: 700;
-                    padding: 2px 4px;
-                    border-radius: 2px;
-                    background: rgba(255, 255, 255, 0.2);
-                    backdrop-filter: blur(4px);
-                }
-            }
+            // ... zvyšok kódu ...
         }
 
-        .pair-token-variables {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            margin-bottom: 4px;
-
-            .bg-var {
-                border-left: 3px solid var(--mat-sys-primary);
-            }
-
-            .text-var {
-                border-left: 3px solid var(--mat-sys-secondary);
-            }
+        // Zruš click na celej karte pre pair karty
+        &:not(.single-token-card) {
+            pointer-events: none;
         }
 
-        .pair-values {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-            margin-bottom: 4px;
+        // Ale povoľ click na buttonoch
+        .copy-buttons .copy-button {
+            pointer-events: auto;
         }
 
-        .copy-buttons {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-
-            .copy-button {
-                width: 32px;
-                height: 32px;
-
-                &.copy-class-btn {
-                    background: var(--mat-sys-primary-container);
-                    color: var(--mat-sys-on-primary-container);
-                }
-
-                &.copy-bg-btn {
-                    background: var(--mat-sys-secondary-container);
-                    color: var(--mat-sys-on-secondary-container);
-                }
-
-                &.copy-text-btn {
-                    background: var(--mat-sys-tertiary-container);
-                    color: var(--mat-sys-on-tertiary-container);
-                }
-            }
-        }
-
-        &:hover .copy-buttons {
-            opacity: 1;
+        // A na preview boxe ak chceš
+        .pair-preview {
+            pointer-events: auto;
         }
     }
 
@@ -494,19 +419,93 @@
             padding: 16px;
         }
 
+        // Individual token card
         .token-card {
-            flex-direction: column;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            background: var(--mat-sys-surface-container);
+            border: 1px solid var(--mat-sys-outline-variant);
+            border-radius: var(--mat-sys-corner-medium);
+            padding: 16px;
+            // cursor: pointer;  <- VYMAŽ TOTO
+            transition: all 0.2s ease;
+            position: relative;
 
-            .color-preview {
-                margin-right: 0;
-                margin-bottom: 12px;
+            &:hover {
+                background: var(--mat-sys-surface-container-high);
+                box-shadow: var(--mat-sys-level2);
+                transform: translateY(-2px);
             }
 
-            .copy-button {
-                position: static;
+            // Cursor len pre single token karty
+            &.single-token-card {
+                cursor: pointer;
+            }
+
+            // Žiadny cursor pre pair karty
+            &.color-pair-card {
+                cursor: default;
+            }
+
+            .color-preview {
+                width: 100px;
+                height: 90px;
+                border-radius: var(--mat-sys-corner-small);
+                margin-right: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid var(--mat-sys-outline-variant);
+                box-shadow: var(--mat-sys-level1);
+                flex-shrink: 0;
+            }
+
+            .token-info {
+                flex: 1;
+                min-width: 0;
+
+                .token-name {
+                    font: var(--mat-sys-title-medium);
+                    color: var(--mat-sys-on-surface);
+                    margin-bottom: 4px;
+                }
+
+                .token-variable {
+                    font-family: "Courier New", monospace;
+                    font-size: 12px;
+                    color: var(--mat-sys-primary);
+                    background: var(--mat-sys-primary-container);
+                    padding: 2px 6px;
+                    border-radius: var(--mat-sys-corner-extra-small);
+                    display: inline-block;
+                    margin-bottom: 4px;
+                }
+
+                .token-description {
+                    font: var(--mat-sys-body-small);
+                    color: var(--mat-sys-on-surface-variant);
+                    line-height: 1.3;
+                }
+            }
+
+            // SINGLE token copy button (absolute positioning)
+            > .copy-button {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+            }
+
+            &:hover > .copy-button {
                 opacity: 1;
-                margin-top: 8px;
+            }
+        }
+
+        .color-pair-card {
+            .copy-buttons {
+                justify-content: center;
+                margin-top: 16px;
             }
         }
 

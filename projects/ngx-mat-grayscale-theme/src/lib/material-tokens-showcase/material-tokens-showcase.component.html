@@ -23,18 +23,15 @@
                 <div class="category-section">
                     <h3 class="category-title">{{ category.name }}</h3>
                     <div class="tokens-grid">
-                        
+
                         <!-- Color Pairs -->
                         @for (pair of category.colorPairs; track pair.className) {
                         <div class="token-card color-pair-card">
-                            <div class="color-preview pair-preview" 
-                                 [style.background-color]="'var(' + pair.backgroundVariable + ')'"
-                                 [style.color]="'var(' + pair.textVariable + ')'">
+                            <div class="color-preview pair-preview"
+                                [style.background-color]="'var(' + pair.backgroundVariable + ')'"
+                                [style.color]="'var(' + pair.textVariable + ')'">
                                 <div class="pair-sample-text">{{ pair.name }}</div>
-                                <div class="pair-variables">
-                                    <span class="bg-badge">BG</span>
-                                    <span class="text-badge">TEXT</span>
-                                </div>
+     
                             </div>
                             <div class="token-info">
                                 <div class="token-name">{{ pair.name }}</div>
@@ -43,26 +40,23 @@
                                     <div class="token-variable text-var">{{ pair.textVariable }}</div>
                                 </div>
                                 <div class="token-description">{{ pair.description }}</div>
-                            </div>
-                            <div class="copy-buttons">
-                                <button mat-icon-button 
-                                        class="copy-button copy-class-btn"
-                                        [matTooltip]="'Kopírovať CSS class: .' + pair.className"
+                                <div class="copy-buttons">
+                                    <button mat-icon-button class="copy-button copy-class-btn"
+                                        [matTooltip]="'Copy CSS class: .' + pair.className"
                                         (click)="copyColorPairClass(pair)">
-                                    <mat-icon>code</mat-icon>
-                                </button>
-                                <button mat-icon-button 
-                                        class="copy-button copy-bg-btn"
-                                        [matTooltip]="'Kopírovať background variable'"
+                                        <mat-icon>code</mat-icon>
+                                    </button>
+                                    <button mat-icon-button class="copy-button copy-bg-btn"
+                                        [matTooltip]="'Copy background variable'"
                                         (click)="copyToClipboard(pair.backgroundVariable)">
-                                    <mat-icon>palette</mat-icon>
-                                </button>
-                                <button mat-icon-button 
-                                        class="copy-button copy-text-btn"
-                                        [matTooltip]="'Kopírovať text variable'"
+                                        <mat-icon>palette</mat-icon>
+                                    </button>
+                                    <button mat-icon-button class="copy-button copy-text-btn"
+                                        [matTooltip]="'Copy text variable'"
                                         (click)="copyToClipboard(pair.textVariable)">
-                                    <mat-icon>text_fields</mat-icon>
-                                </button>
+                                        <mat-icon>text_fields</mat-icon>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         }
@@ -70,18 +64,16 @@
                         <!-- Single Color Tokens -->
                         @for (token of category.singleTokens; track token.variable) {
                         <div class="token-card single-token-card" (click)="copyToClipboard(token.variable)">
-                            <div class="color-preview single-preview" 
-                                 [style.background-color]="'var(' + token.variable + ')'">
+                            <div class="color-preview single-preview"
+                                [style.background-color]="'var(' + token.variable + ')'">
                             </div>
                             <div class="token-info">
                                 <div class="token-name">{{ token.name }}</div>
                                 <div class="token-variable">{{ token.variable }}</div>
                                 <div class="token-description">{{ token.description }}</div>
                             </div>
-                            <button mat-icon-button 
-                                    class="copy-button"
-                                    [matTooltip]="'Kopírovať ' + token.variable"
-                                    (click)="$event.stopPropagation(); copyToClipboard(token.variable)">
+                            <button mat-icon-button class="copy-button" [matTooltip]="'Kopírovať ' + token.variable"
+                                (click)="$event.stopPropagation(); copyToClipboard(token.variable)">
                                 <mat-icon>content_copy</mat-icon>
                             </button>
                         </div>
@@ -109,10 +101,8 @@
                             </div>
                             <div class="typography-description">{{ typo.description }}</div>
                         </div>
-                        <button mat-icon-button 
-                                class="copy-button"
-                                [matTooltip]="'Kopírovať ' + typo.variable"
-                                (click)="$event.stopPropagation(); copyToClipboard(typo.variable)">
+                        <button mat-icon-button class="copy-button" [matTooltip]="'Kopírovať ' + typo.variable"
+                            (click)="$event.stopPropagation(); copyToClipboard(typo.variable)">
                             <mat-icon>content_copy</mat-icon>
                         </button>
                     </div>
@@ -129,9 +119,8 @@
                     <h3 class="category-title">Elevation Levels</h3>
                     <div class="elevation-grid">
                         @for (level of elevationLevels; track level.name) {
-                        <div class="elevation-card" 
-                             [style.box-shadow]="'var(' + level.variable + ')'"
-                             (click)="copyToClipboard(level.variable)">
+                        <div class="elevation-card" [style.box-shadow]="'var(' + level.variable + ')'"
+                            (click)="copyToClipboard(level.variable)">
                             <div class="elevation-name">{{ level.name }}</div>
                             <div class="elevation-variable">{{ level.variable }}</div>
                             <div class="elevation-usage">{{ level.usage }}</div>
@@ -145,9 +134,8 @@
                     <h3 class="category-title">Corner Radius</h3>
                     <div class="corner-grid">
                         @for (corner of cornerTokens; track corner.variable) {
-                        <div class="corner-card" 
-                             [style.border-radius]="'var(' + corner.variable + ')'"
-                             (click)="copyToClipboard(corner.variable)">
+                        <div class="corner-card" [style.border-radius]="'var(' + corner.variable + ')'"
+                            (click)="copyToClipboard(corner.variable)">
                             <div class="corner-name">{{ corner.name }}</div>
                             <div class="corner-variable">{{ corner.variable }}</div>
                             <div class="corner-value">{{ corner.value }}</div>
