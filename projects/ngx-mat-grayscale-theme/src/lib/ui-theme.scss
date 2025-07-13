@@ -1,9 +1,12 @@
-// src/grayscale-ui-theme.scss
+// src/ui-theme.scss
 // TENTO súbor bude obsahovať aplikáciu témy + grayscale úpravy
 // Vygenerovaný súbor zostáva nedotknutý!
 @use "@angular/material" as mat;
-// @use "./grayscale-theme" as theme-colors;
-@use "./gemini-theme-1" as theme-colors;
+@use "./grayscale-theme" as theme-colors;
+// @use "./gemini-theme-1" as theme-colors;
+// @use "./parrot-theme-1" as theme-colors;
+// @use "./rgbwb-theme-1" as theme-colors;
+
 
 @include mat.core();
 
@@ -14,6 +17,8 @@ html {
       color: (
         theme-type: light,
         primary: theme-colors.$primary-palette,
+        secondary: theme-colors.$secondary-palette,
+        // <-- Pridané
         tertiary: theme-colors.$tertiary-palette
       ),
       typography: Roboto,
@@ -32,7 +37,7 @@ html {
       focus-outline-color: var(--mat-sys-primary),
       subscript-focus-color: var(--mat-sys-primary),
       text-input-color: var(--mat-sys-on-surface),
-      caret-color: var(--mat-sys-on-surface),
+      caret-color: var(--mat-sys-on-surface)
     )
   );
   @include mat.form-field-density(0);
@@ -52,7 +57,9 @@ html {
       -webkit-box-shadow: 0 0 0px 1000px var(--mat-sys-surface-container-low) inset !important;
       -webkit-text-fill-color: var(--mat-sys-on-surface) !important;
       caret-color: var(--mat-sys-on-surface) !important;
-      transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important;
+      transition:
+        background-color 5000s ease-in-out 0s,
+        color 5000s ease-in-out 0s !important;
       background-image: none !important;
       filter: none !important;
       opacity: 1 !important;
@@ -72,20 +79,23 @@ html {
   @include mat.badge-color(
     (
       // Primary odznak: Použije primárnu kontajnerovú farbu a text na nej
-      primary: (
-        container-color: var(--mat-sys-primary-container),
-        text-color: var(--mat-sys-on-primary-container),
-      ),
+      primary: (container-color: var(--mat-sys-primary-container), text-color: var(--mat-sys-on-primary-container)),
       // Accent odznak: Pre lepšiu viditeľnosť použijeme samotnú secondary farbu (tmavšiu ako secondary-container)
-      accent: (
-        container-color: var(--mat-sys-secondary), // Namiesto secondary-container
-        text-color: var(--mat-sys-on-secondary), // Text na secondary farbe
-      ),
+      accent:
+        (
+          container-color: var(--mat-sys-secondary),
+          // Namiesto secondary-container
+          text-color: var(--mat-sys-on-secondary),
+          // Text na secondary farbe
+        ),
       // Warning odznak: Pre lepšiu viditeľnosť použijeme samotnú error farbu (tmavšiu ako error-container)
-      warn: (
-        container-color: var(--mat-sys-error), // Namiesto error-container
-        text-color: var(--mat-sys-on-error), // Text na error farbe
-      ),
+      warn:
+        (
+          container-color: var(--mat-sys-error),
+          // Namiesto error-container
+          text-color: var(--mat-sys-on-error),
+          // Text na error farbe
+        )
     )
   );
 }
@@ -108,6 +118,8 @@ body {
       color: (
         theme-type: dark,
         primary: theme-colors.$primary-palette,
+        secondary: theme-colors.$secondary-palette,
+        // <-- Pridané
         tertiary: theme-colors.$tertiary-palette
       ),
       typography: Roboto,
@@ -125,7 +137,7 @@ body {
       focus-outline-color: var(--mat-sys-primary),
       subscript-focus-color: var(--mat-sys-primary),
       text-input-color: var(--mat-sys-on-surface),
-      caret-color: var(--mat-sys-on-surface),
+      caret-color: var(--mat-sys-on-surface)
     )
   );
   @include mat.form-field-density(0);
@@ -133,8 +145,6 @@ body {
   body {
     color: var(--mat-sys-on-surface-variant) !important;
   }
-
-
 
   @include mat.tooltip-overrides(
     (
@@ -157,7 +167,9 @@ body {
       -webkit-box-shadow: 0 0 0px 1000px var(--mat-sys-surface-container-low) inset !important;
       -webkit-text-fill-color: var(--mat-sys-on-surface) !important;
       caret-color: var(--mat-sys-on-surface) !important;
-      transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important;
+      transition:
+        background-color 5000s ease-in-out 0s,
+        color 5000s ease-in-out 0s !important;
       background-image: none !important;
       filter: none !important;
       opacity: 1 !important;
@@ -171,8 +183,6 @@ body {
       box-shadow: none !important;
     }
   }
-
- 
 }
 
 // High contrast verzie (bezo zmien v badge farbách, ak to nie je explicitne požadované)
@@ -181,6 +191,8 @@ body {
     (
       color: (
         primary: theme-colors.$primary-palette,
+        secondary: theme-colors.$secondary-palette,
+        // <-- Pridané
         tertiary: theme-colors.$tertiary-palette
       ),
       typography: Roboto,
@@ -200,7 +212,7 @@ body {
       focus-outline-color: var(--mat-sys-primary),
       subscript-focus-color: var(--mat-sys-primary),
       text-input-color: var(--mat-sys-on-surface),
-      caret-color: var(--mat-sys-on-surface),
+      caret-color: var(--mat-sys-on-surface)
     )
   );
   @include mat.form-field-density(0);
@@ -219,6 +231,8 @@ body {
       color: (
         theme-type: dark,
         primary: theme-colors.$primary-palette,
+        secondary: theme-colors.$secondary-palette,
+        // <-- Pridané
         tertiary: theme-colors.$tertiary-palette
       ),
       typography: Roboto,
@@ -238,7 +252,7 @@ body {
       focus-outline-color: var(--mat-sys-primary),
       subscript-focus-color: var(--mat-sys-primary),
       text-input-color: var(--mat-sys-on-surface),
-      caret-color: var(--mat-sys-on-surface),
+      caret-color: var(--mat-sys-on-surface)
     )
   );
   @include mat.form-field-density(0);

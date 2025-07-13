@@ -6,6 +6,6 @@
   },
   "assets": [
     "src/lib/grayscale-theme.scss",
-    "src/lib/grayscale-ui-theme.scss"
+    "src/lib/ui-theme.scss"
   ]
 }

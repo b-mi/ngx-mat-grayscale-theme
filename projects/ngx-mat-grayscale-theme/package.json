@@ -15,8 +15,8 @@
     "./grayscale-theme": {
       "sass": "./grayscale-theme.scss"
     },
-    "./grayscale-ui-theme": {
-      "sass": "./grayscale-ui-theme.scss"
+    "./ui-theme": {
+      "sass": "./ui-theme.scss"
     }
   },
   "description": "A minimalist grayscale theme for Angular Material 20",

@@ -59,7 +59,7 @@ export class MaterialTokensShowcaseComponent {
   constructor(private snackBar: MatSnackBar) {}
 
   // Color pairs - background + text combinations
-  colorPairs: ColorPair[] = [
+colorPairs: ColorPair[] = [
     // Background & Surface
     { 
       name: 'Background', 
@@ -122,6 +122,24 @@ export class MaterialTokensShowcaseComponent {
       className: 'mat-sys-secondary-container'
     },
 
+    // Tertiary Colors
+    { 
+      name: 'Tertiary', 
+      backgroundVariable: '--mat-sys-tertiary', 
+      textVariable: '--mat-sys-on-tertiary', 
+      description: 'Terciárna farba', 
+      category: 'Tertiary Colors',
+      className: 'mat-sys-tertiary'
+    },
+    { 
+      name: 'Tertiary Container', 
+      backgroundVariable: '--mat-sys-tertiary-container', 
+      textVariable: '--mat-sys-on-tertiary-container', 
+      description: 'Kontajner pre tertiary', 
+      category: 'Tertiary Colors',
+      className: 'mat-sys-tertiary-container'
+    },
+
     // Error Colors
     { 
       name: 'Error', 
@@ -159,6 +177,8 @@ export class MaterialTokensShowcaseComponent {
     { name: 'Surface Container', variable: '--mat-sys-surface-container', description: 'Štandardný - chips, buttons', category: 'Surface Hierarchy' },
     { name: 'Surface Container High', variable: '--mat-sys-surface-container-high', description: 'Vysoký - app bars', category: 'Surface Hierarchy' },
     { name: 'Surface Container Highest', variable: '--mat-sys-surface-container-highest', description: 'Najvyšší - FAB', category: 'Surface Hierarchy' },
+    { name: 'Surface Bright', variable: '--mat-sys-surface-bright', description: 'Jasný povrch', category: 'Surface Hierarchy' },
+    { name: 'Surface Dim', variable: '--mat-sys-surface-dim', description: 'Tmavší povrch', category: 'Surface Hierarchy' },
 
     // Borders & Outlines
     { name: 'Outline', variable: '--mat-sys-outline', description: 'Štandardné borders', category: 'Borders & Outlines' },

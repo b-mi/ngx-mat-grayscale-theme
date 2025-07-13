@@ -28,7 +28,7 @@ In `src/styles.scss`:
 
 ```scss
 // Import grayscale theme (replaces default Angular Material theme)
-@import 'ngx-mat-grayscale-theme/grayscale-ui-theme';
+@import 'ngx-mat-grayscale-theme/ui-theme';
 
 // Your custom global styles
 html, body { height: 100%; }
