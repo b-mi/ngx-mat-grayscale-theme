@@ -7,22 +7,32 @@ REM Nastavenia - UPRAV TIETO HODNOTY
 set PROJECT_NAME=demo
 set GITHUB_USERNAME=b-mi
 set REPO_NAME=ngx-mat-grayscale-theme
-set PROJECT_PATH=C:\cesta\k\tvojmu\angular\projektu
 
 echo.
 echo ======================================
 echo 1. Test build projektu %PROJECT_NAME%
 echo ======================================
-call ng build %PROJECT_NAME%
+call ng build ngx-mat-grayscale-theme
 if %errorlevel% neq 0 (
-    echo CHYBA: Build projektu %PROJECT_NAME% zlyhal!
+    echoc error CHYBA: Build projektu build ngx-mat-grayscale-theme zlyhal!
     pause
     exit /b 1
 )
+echo pause
+pause
 
-echo.
-echo Build úspešný!
-echo.
+REM call ng build %PROJECT_NAME%
+REM if %errorlevel% neq 0 (
+    REM echoc error CHYBA: Build projektu %PROJECT_NAME% zlyhal!
+    REM pause
+    REM exit /b 1
+REM )
+
+REM echo.
+REM echo Build úspešný!
+REM echo.
+
+REM pause
 
 echo ======================================
 echo 2. Publikovanie na GitHub Pages
@@ -31,7 +41,7 @@ echo URL: https://%GITHUB_USERNAME%.github.io/%REPO_NAME%/
 echo.
 
 REM Publikovanie
-call ng deploy --project=%PROJECT_NAME% --base-href=/%REPO_NAME%/
+call ng deploy  --dir=dist/demo/browser
 
 if %errorlevel% equ 0 (
     echo.
