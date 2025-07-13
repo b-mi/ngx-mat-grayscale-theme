@@ -2,7 +2,8 @@
 // TENTO súbor bude obsahovať aplikáciu témy + grayscale úpravy
 // Vygenerovaný súbor zostáva nedotknutý!
 @use "@angular/material" as mat;
-@use "./grayscale-theme" as theme-colors; // import tvojho vygenerovaného súboru
+// @use "./grayscale-theme" as theme-colors;
+@use "./gemini-theme-1" as theme-colors;
 
 @include mat.core();
 
