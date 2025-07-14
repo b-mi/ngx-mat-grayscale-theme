@@ -8,20 +8,20 @@ set PROJECT_NAME=demo
 set GITHUB_USERNAME=b-mi
 set REPO_NAME=ngx-mat-grayscale-theme
 
-echo.
-echo ======================================
-echo 1. Test build projektu %PROJECT_NAME%
-echo ======================================
-call ng build ngx-mat-grayscale-theme
-if %errorlevel% neq 0 (
-    echoc error CHYBA: Build projektu build ngx-mat-grayscale-theme zlyhal!
-    pause
-    exit /b 1
-)
-echo pause
-pause
+REM echo.
+REM echo ======================================
+REM echo 1. Test build projektu %PROJECT_NAME%
+REM echo ======================================
+REM call ng build ngx-mat-grayscale-theme
+REM if %errorlevel% neq 0 (
+    REM echoc error CHYBA: Build projektu build ngx-mat-grayscale-theme zlyhal!
+    REM pause
+    REM exit /b 1
+REM )
+REM echo pause
+REM pause
 
-REM call ng build %PROJECT_NAME%
+REM call ng build %PROJECT_NAME% --base-href=/ngx-mat-grayscale-theme/
 REM if %errorlevel% neq 0 (
     REM echoc error CHYBA: Build projektu %PROJECT_NAME% zlyhal!
     REM pause
@@ -34,14 +34,14 @@ REM echo.
 
 REM pause
 
-echo ======================================
-echo 2. Publikovanie na GitHub Pages
-echo ======================================
-echo URL: https://%GITHUB_USERNAME%.github.io/%REPO_NAME%/
-echo.
+REM echo ======================================
+REM echo 2. Publikovanie na GitHub Pages
+REM echo ======================================
+REM echo URL: https://%GITHUB_USERNAME%.github.io/%REPO_NAME%/
+REM echo.
 
 REM Publikovanie
-call ng deploy  --dir=dist/demo/browser
+call ng deploy  --repo=https://github.com/b-mi/ngx-mat-grayscale-theme.git --dry-run
 
 if %errorlevel% equ 0 (
     echo.
