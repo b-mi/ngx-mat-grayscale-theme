@@ -1,66 +1,64 @@
 @echo off
-echo ======================================
-echo Angular Demo Deploy to GitHub Pages
-echo ======================================
-
 REM Nastavenia - UPRAV TIETO HODNOTY
 set PROJECT_NAME=demo
 set GITHUB_USERNAME=b-mi
 set REPO_NAME=ngx-mat-grayscale-theme
 
-REM echo.
-REM echo ======================================
-REM echo 1. Test build projektu %PROJECT_NAME%
-REM echo ======================================
-REM call ng build ngx-mat-grayscale-theme
-REM if %errorlevel% neq 0 (
-    REM echoc error CHYBA: Build projektu build ngx-mat-grayscale-theme zlyhal!
-    REM pause
-    REM exit /b 1
-REM )
-REM echo pause
-REM pause
+echoc title ======================================
+echoc title Angular '%PROJECT_NAME%' Deploy to GitHub Pages
+echoc title ======================================
 
-REM call ng build %PROJECT_NAME% --base-href=/ngx-mat-grayscale-theme/
-REM if %errorlevel% neq 0 (
-    REM echoc error CHYBA: Build projektu %PROJECT_NAME% zlyhal!
-    REM pause
-    REM exit /b 1
-REM )
 
-REM echo.
-REM echo Build úspešný!
-REM echo.
+echoc title ======================================
+echoc title Aktualizacia verzie projektu %PROJECT_NAME%
+echoc title ======================================
 
-REM pause
+call npm version patch
 
-REM echo ======================================
-REM echo 2. Publikovanie na GitHub Pages
-REM echo ======================================
-REM echo URL: https://%GITHUB_USERNAME%.github.io/%REPO_NAME%/
-REM echo.
+echo.
+echoc title ======================================
+echoc title Build projektu %PROJECT_NAME%
+echoc title ======================================
+call ng build %REPO_NAME%
+if %errorlevel% neq 0 (
+    echoc error CHYBA: Build projektu build %REPO_NAME% zlyhal!
+    pause
+    exit /b 1
+)
 
-REM Publikovanie
-call ng deploy  --repo=https://github.com/b-mi/ngx-mat-grayscale-theme.git --dry-run
+
+echo.
+echoc done Build uspesny!
+echo.
+
+
+echoc title ======================================
+echoc title 2. Build a publikovanie '%PROJECT_NAME%' na GitHub Pages
+echoc title ======================================
+echoc info URL: https://%GITHUB_USERNAME%.github.io/%REPO_NAME%/
+echo.
+echoc warning Stlac ENTER pre pokracovanie
+pause
+call ng deploy --base-href=/%REPO_NAME%/ --no-silent
 
 if %errorlevel% equ 0 (
     echo.
-    echo ======================================
-    echo ✅ ÚSPECH!
-    echo ======================================
-    echo Aplikácia je publikovaná na:
-    echo https://%GITHUB_USERNAME%.github.io/%REPO_NAME%/
+    echoc done ======================================
+    echoc done success ✅ ÚSPECH!
+    echoc done ======================================
+    echoc info Aplikacia je publikovana na:
+    echoc info https://%GITHUB_USERNAME%.github.io/%REPO_NAME%/
     echo.
-    echo Môže trvať 1-2 minúty kým sa zmeny prejavia.
+    echoc warning Moze trvat 1-2 minuty kym sa zmeny prejavia.
 ) else (
     echo.
-    echo ======================================
-    echo ❌ CHYBA!
-    echo ======================================
-    echo Publikovanie zlyhalo. Možné riešenia:
-    echo 1. Skontroluj GitHub credentials
-    echo 2. Overte repo URL
-    echo 3. Skontroluj názov projektu v angular.json
+    echoc error ======================================
+    echoc error error ❌ CHYBA!
+    echoc error ======================================
+    echoc error PublikOVANIE ZlYhAlo. MozNe rIEeEnIa:
+    echoc error 1. SKoNTrOLUj GitHUB CREdeNtials
+    echoc error 2. OvErte REpO Url
+    echoc error 3. SkoNtROluj NaZOV proJeKtU V angULAR.jsoN
 )
 
 echo.
