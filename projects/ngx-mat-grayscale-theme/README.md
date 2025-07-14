@@ -143,11 +143,13 @@ interface GrayscaleThemeConfig {
 ## 🎨 Design Principles
 
 ### Colors
+
 - **Primary palette**: Professional gray tones
 - **No color accents**: Consistent grayscale design
 - **High contrast**: Optimized for accessibility
 
 ### Styles
+
 - **No shadows**: All Material components have removed box-shadow
 - **Subtle borders**: 1px solid borders instead of shadows
 - **Clean interface**: Minimalist, professional appearance
@@ -155,6 +157,7 @@ interface GrayscaleThemeConfig {
 ## 🔧 Development
 
 ### Requirements
+
 - Angular 20+
 - Angular Material 20+
 - TypeScript 5.8+
