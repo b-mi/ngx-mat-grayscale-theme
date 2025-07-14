@@ -12,6 +12,8 @@ A minimalist grayscale theme for Angular Material 20 with professional gray tone
 - 🎛️ **Complete theme switcher** component
 - 🔧 **Angular 20 compatibility**
 
+[DEMO](https://b-mi.github.io/ngx-mat-grayscale-theme/demo)
+
 ![alt text](demo.png)
 
 ## 📦 Installation
